@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="anonymusAtqModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="record">
+          <Key>
+            <PropertyRef Name="id_record" />
+          </Key>
+          <Property Name="id_record" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_number" Type="int" Nullable="false" />
+          <Property Name="SRTFeedback" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="answ" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="scale_numbers">
+          <Key>
+            <PropertyRef Name="id_number" />
+          </Key>
+          <Property Name="id_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="anonymusAtqModelStoreContainer">
+          <EntitySet Name="record" EntityType="Self.record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="scale_numbers" EntityType="Self.scale_numbers" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="anonymusAtqModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="record">
+          <Key>
+            <PropertyRef Name="id_record" />
+          </Key>
+          <Property Name="id_record" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_number" Type="Int32" Nullable="false" />
+          <Property Name="SRTFeedback" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="answ" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="scale_numbers">
+          <Key>
+            <PropertyRef Name="id_number" />
+          </Key>
+          <Property Name="id_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="anonymusAtqEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="records" EntityType="Self.record" />
+          <EntitySet Name="scale_numbers" EntityType="Self.scale_numbers" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="anonymusAtqModelStoreContainer" CdmEntityContainer="anonymusAtqEntities">
+          <EntitySetMapping Name="records">
+            <EntityTypeMapping TypeName="anonymusAtqModel.record">
+              <MappingFragment StoreEntitySet="record">
+                <ScalarProperty Name="id_record" ColumnName="id_record" />
+                <ScalarProperty Name="id_number" ColumnName="id_number" />
+                <ScalarProperty Name="SRTFeedback" ColumnName="SRTFeedback" />
+                <ScalarProperty Name="answ" ColumnName="answ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="scale_numbers">
+            <EntityTypeMapping TypeName="anonymusAtqModel.scale_numbers">
+              <MappingFragment StoreEntitySet="scale_numbers">
+                <ScalarProperty Name="id_number" ColumnName="id_number" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
